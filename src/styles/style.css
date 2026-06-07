@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter_18pt-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter_18pt-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer utilities {
+  .neon-title {
+    color: #fff;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #ff007f,
+      0 0 40px #ff007f,
+      0 0 80px #ff007f;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative pb-1 transition-all duration-300;
+
+    color: #ff007f;
+    text-shadow:
+      0 0 4px rgba(255, 0, 127, 0.5),
+      0 0 8px rgba(255, 0, 127, 0.3);
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 bottom-0 h-[2px] w-0 transition-all duration-300;
+
+    background: #ff007f;
+    box-shadow:
+      0 0 5px rgba(255, 0, 127, 0.8),
+      0 0 10px rgba(255, 0, 127, 0.5);
+  }
+
+  .nav-link:hover {
+    text-shadow:
+      0 0 5px rgba(255, 0, 127, 0.9),
+      0 0 10px rgba(255, 0, 127, 0.8),
+      0 0 20px rgba(255, 0, 127, 0.7),
+      0 0 40px rgba(255, 0, 127, 0.5);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+    box-shadow:
+      0 0 8px rgba(255, 0, 127, 1),
+      0 0 16px rgba(255, 0, 127, 0.8);
+  }
+
+  .nav-link-active::after {
+    width: 100%;
+  }
+}
+
+* {
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0b0b0d;
+  font-family: "Inter", sans-serif;
+}
