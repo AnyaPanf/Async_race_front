@@ -23,10 +23,7 @@ const icons = {
   pause: PauseIcon,
 } as const;
 
-export const CarActivationBtn = ({
-  type,
-  handleClick,
-}: CarActivationBtnProps) => {
+export function CarActivationBtn({ type, handleClick }: CarActivationBtnProps) {
   const Icon = icons[type];
 
   return (
@@ -38,4 +35,4 @@ export const CarActivationBtn = ({
       <Icon className={`w-4 h-4 py-1 px-1 rounded ${textStyles[type]}`} />
     </button>
   );
-};
+}

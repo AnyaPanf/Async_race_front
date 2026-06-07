@@ -10,7 +10,7 @@ const buttonStyles: Record<ButtonType, string> = {
   select: "bg-transparent border border-[#ff4a8d] text-[#ff4a8d]",
 };
 
-export const CarActionBtn = ({ type, handleClick }: CarActionBtnProps) => {
+export function CarActionBtn({ type, handleClick }: CarActionBtnProps) {
   return (
     <button
       type="button"
@@ -20,4 +20,4 @@ export const CarActionBtn = ({ type, handleClick }: CarActionBtnProps) => {
       {type.toUpperCase()}
     </button>
   );
-};
+}

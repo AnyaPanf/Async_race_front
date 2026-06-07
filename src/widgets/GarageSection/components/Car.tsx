@@ -4,10 +4,10 @@ type CarProps = {
   color?: string;
 };
 
-export const Car = ({ color }: CarProps) => {
+export function Car({ color }: CarProps) {
   return (
     <div className="flex items-center justify-center">
-      <CarIcon className="w-12 h-12" style={{ color: color }} />
+      <CarIcon className="w-12 h-12" style={{ color }} />
     </div>
   );
-};
+}

@@ -4,7 +4,7 @@ type CarCustomizerProps = {
   text: CarCustomizerText;
 };
 
-export const CarCustomizer = ({ text }: CarCustomizerProps) => {
+export function CarCustomizer({ text }: CarCustomizerProps) {
   return (
     <form className="flex items-center gap-1 text-sm bg-[#1c1c1e] rounded-md px-2 py-1">
       <input
@@ -21,4 +21,4 @@ export const CarCustomizer = ({ text }: CarCustomizerProps) => {
       </button>
     </form>
   );
-};
+}

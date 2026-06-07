@@ -1,7 +1,7 @@
-// import { createSlice } from "@reduxjs/toolkit";
+// import { createSlice } from '@reduxjs/toolkit';
 
 // const raceSlice = createSlice({
-//   name: "car",
+//   name: 'car',
 //   initialState: { value: 0 },
 //   reducers: {
 //     increment: (state) => {
@@ -9,4 +9,4 @@
 //     }
 // });
 
-//example
+// example

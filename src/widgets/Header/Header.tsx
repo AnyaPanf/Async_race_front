@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export const Header = () => {
+export function Header() {
   return (
     <div className="flex justify-between items-center p-4">
       <div className="neon-title">ASYNC RACE</div>
@@ -24,4 +24,4 @@ export const Header = () => {
       </div>
     </div>
   );
-};
+}
