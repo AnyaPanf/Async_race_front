@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src", "vite.config.*", "eslint.config.*"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".eslintrc.cjs",
+    ".eslintrc.js",
+    "vite.config.ts"
+  ]
+}
