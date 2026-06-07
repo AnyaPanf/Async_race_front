@@ -28,15 +28,12 @@ const textColors: Record<ButtonType, string> = {
   generate: "text-[#ff4a8d]",
 };
 
-export const CustomButton = ({
-  title,
-  type,
-  handleClick,
-}: CustomButtonProps) => {
+export function CustomButton({ title, type, handleClick }: CustomButtonProps) {
   const Icon = icons[type];
 
   return (
     <button
+      type="button"
       className={`flex items-center gap-2 px-4 py-2 rounded cursor-pointer transition ${buttonStyles[type]}`}
       onClick={handleClick}
     >
@@ -44,4 +41,4 @@ export const CustomButton = ({
       <p>{type === "generate" ? "Generate cars" : title}</p>
     </button>
   );
-};
+}

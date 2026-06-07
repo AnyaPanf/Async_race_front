@@ -1,9 +1,9 @@
 import { CarCustomizer } from "@/shared/ui/CarCustomizer/CarCustomizer";
 import { CustomButton } from "../../shared/ui/Buttons/CustomButton";
 
-export const ControlPannel = () => {
+export function ControlPannel() {
   const handleClick = () => {
-    console.log("Button clicked");
+    // console.log('Button clicked');
   };
 
   return (
@@ -23,4 +23,4 @@ export const ControlPannel = () => {
       </div>
     </div>
   );
-};
+}
