@@ -1,4 +1,4 @@
-import { FormProps } from '@/widgets/GarageSection/types';
+import { FormProps } from '@/shared/types/garage/types';
 
 export function Form({
   onSubmit,

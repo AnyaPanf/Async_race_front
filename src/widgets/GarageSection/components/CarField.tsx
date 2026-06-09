@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { setSelectedCarId } from '@/store/api/uiApi';
 import { useRemoveCarMutation } from '@/store/api/garageApi';
-import { Car } from '../types';
+import { Car } from '../../../shared/types/garage/types';
 import { CarActions } from './CarActions';
 import { TrackArea } from './TrackArea';
 

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 export function Header() {
   return (
@@ -7,15 +7,15 @@ export function Header() {
       <div className="flex gap-4">
         <NavLink
           className={({ isActive }) =>
-            `nav-link ${isActive ? "nav-link-active" : ""}`
+            `nav-link ${isActive ? 'nav-link-active' : ''}`
           }
           to="/"
         >
-          Race
+          Garage
         </NavLink>
         <NavLink
           className={({ isActive }) =>
-            `nav-link ${isActive ? "nav-link-active" : ""}`
+            `nav-link ${isActive ? 'nav-link-active' : ''}`
           }
           to="/winners"
         >
