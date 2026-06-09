@@ -1,11 +1,18 @@
-import { CarActions } from "./components/CarActions";
-import { TrackArea } from "./components/TrackArea";
+import { useEffect } from 'react';
+import { useGetCarsQuery } from '@/store/api/garageApi';
+import { Car } from './types';
+import CarField from './components/CarField';
 
 export function GarageSection() {
+  const { data: cars } = useGetCarsQuery();
+
+  useEffect(() => {}, [cars]);
+
   return (
-    <div className="grid grid-cols-[20%_80%] gap-4 mb-1 pb-1 border-b border-[#373a3d]">
-      <CarActions />
-      <TrackArea />
+    <div>
+      {cars?.map((car: Car) => (
+        <CarField key={car.id} name={car.name} color={car.color} id={car.id} />
+      ))}
     </div>
   );
 }

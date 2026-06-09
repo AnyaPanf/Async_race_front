@@ -1,5 +1,5 @@
-import { GarageSection } from "@/widgets/GarageSection/GarageSection";
-import { ControlPannel } from "../../widgets/ControlPannel/ControlPannel";
+import { GarageSection } from '@/widgets/GarageSection/GarageSection';
+import { ControlPannel } from '../../widgets/ControlPannel/ControlPannel';
 
 function RacePage() {
   return (

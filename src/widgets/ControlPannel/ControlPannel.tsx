@@ -1,9 +1,30 @@
-import { CarCustomizer } from "@/shared/ui/CarCustomizer/CarCustomizer";
-import { CustomButton } from "../../shared/ui/Buttons/CustomButton";
+import {
+  useCreateCarMutation,
+  useUpdateCarMutation,
+} from '@/store/api/garageApi';
+import { useAppSelector } from '@/store/hooks';
+import { CarCustomizer } from '@/shared/ui/CarCustomizer/CarCustomizer';
+import { CustomButton } from '../../shared/ui/Buttons/CustomButton';
+import { CustomizeCarData } from '../GarageSection/types';
 
 export function ControlPannel() {
+  const [updateCar] = useUpdateCarMutation();
+  const [createCar] = useCreateCarMutation();
+  const selectedCarId = useAppSelector((state) => state.ui.selectedCarId);
+
+  const handleCreateCar = async ({ name, color }: CustomizeCarData) => {
+    await createCar({ data: { name, color } }).unwrap();
+  };
+
+  const handleUpdateCar = async ({ name, color }: CustomizeCarData) => {
+    await updateCar({
+      id: selectedCarId,
+      data: { name, color },
+    }).unwrap();
+  };
+
   const handleClick = () => {
-    // console.log('Button clicked');
+    console.log('Button clicked');
   };
 
   return (
@@ -18,8 +39,8 @@ export function ControlPannel() {
         />
       </div>
       <div className="flex gap-4">
-        <CarCustomizer text="Create" />
-        <CarCustomizer text="Update" />
+        <CarCustomizer type="create" handleClick={handleCreateCar} />
+        <CarCustomizer type="update" handleClick={handleUpdateCar} />
       </div>
     </div>
   );

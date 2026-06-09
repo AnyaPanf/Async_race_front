@@ -1,50 +1,67 @@
 module.exports = {
-  extends: ["airbnb", "airbnb/hooks", "plugin:@typescript-eslint/recommended"],
+  extends: ['airbnb', 'airbnb/hooks', 'plugin:@typescript-eslint/recommended'],
 
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
 
   parserOptions: {
     ecmaVersion: 2022,
-    sourceType: "module",
-    project: "./tsconfig.json",
+    sourceType: 'module',
+    project: './tsconfig.json',
   },
 
-  plugins: ["@typescript-eslint"],
+  plugins: ['@typescript-eslint'],
 
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       typescript: {
-        project: "./tsconfig.json",
+        project: './tsconfig.json',
       },
     },
 
     react: {
-      version: "detect",
+      version: 'detect',
     },
   },
 
   rules: {
-    "react/react-in-jsx-scope": "off",
+    'react/react-in-jsx-scope': 'off',
 
-    "react/jsx-filename-extension": ["error", { extensions: [".tsx"] }],
+    'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
 
-    "import/extensions": [
-      "error",
-      "ignorePackages",
+    'import/extensions': [
+      'error',
+      'ignorePackages',
       {
-        js: "never",
-        jsx: "never",
-        ts: "never",
-        tsx: "never",
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
       },
     ],
 
-    "import/prefer-default-export": "off",
+    'object-curly-newline': [
+      'error',
+      'after',
+      {
+        multiline: true,
+        consistent: true,
+      },
+    ],
 
-    "import/no-extraneous-dependencies": "off",
+    'import/prefer-default-export': 'off',
 
-    "react/require-default-props": "off",
+    'import/no-extraneous-dependencies': 'off',
 
-    "no-console": "warn",
+    'react/require-default-props': 'off',
+
+    'no-console': 'warn',
+
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
   },
 };

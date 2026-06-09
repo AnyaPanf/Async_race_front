@@ -1,20 +1,20 @@
-type ButtonType = "select" | "remove";
+type ButtonType = 'select' | 'remove';
 
 type CarActionBtnProps = {
   type: ButtonType;
-  handleClick?: () => void;
+  handleClick: () => void;
 };
 
 const buttonStyles: Record<ButtonType, string> = {
-  remove: "bg-transparent border border-[#09f1fc] text-[#09f1fc]",
-  select: "bg-transparent border border-[#ff4a8d] text-[#ff4a8d]",
+  remove: 'bg-transparent border border-[#ff498d] text-[#ff498d]',
+  select: 'bg-transparent border border-[#09f1fc] text-[#09f1fc]',
 };
 
 export function CarActionBtn({ type, handleClick }: CarActionBtnProps) {
   return (
     <button
       type="button"
-      onClick={handleClick}
+      onClick={() => handleClick()}
       className={`${buttonStyles[type]} font-regular py-[2px] px-[6px] rounded text-[9px] cursor-pointer`}
     >
       {type.toUpperCase()}

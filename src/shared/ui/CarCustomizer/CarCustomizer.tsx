@@ -1,24 +1,43 @@
-type CarCustomizerText = "Create" | "Update";
+import { useGetCarQuery } from '@/store/api/garageApi';
+import { useAppSelector } from '@/store/hooks';
+import { CarCustomizerProps } from '@/widgets/GarageSection/types';
+import { useCarForm } from '@/shared/hooks/useCarForm';
+import { Form } from './components/Form';
 
-type CarCustomizerProps = {
-  text: CarCustomizerText;
-};
+export function CarCustomizer({ type, handleClick }: CarCustomizerProps) {
+  const selectedCarId = useAppSelector((state) => state.ui.selectedCarId);
+  const { data: carData } = useGetCarQuery(selectedCarId as number, {
+    skip: !selectedCarId,
+  });
 
-export function CarCustomizer({ text }: CarCustomizerProps) {
+  const { name, setName, color, setColor, error, validate, resetForm } =
+    useCarForm({
+      type,
+      carData,
+    });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = validate();
+    if (!data) return;
+
+    try {
+      await handleClick(data);
+      resetForm();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
-    <form className="flex items-center gap-1 text-sm bg-[#1c1c1e] rounded-md px-2 py-1">
-      <input
-        type="text"
-        placeholder="Car Name"
-        className="rounded-md text-white focus:outline-none"
-      />
-      <input type="color" className="w-[25px] h-7 cursor-pointer" />
-      <button
-        type="submit"
-        className="px-2 py-1 bg-[#353638] text-white rounded-md hover:bg-blue-700 focus:outline-none cursor-pointer"
-      >
-        {text}
-      </button>
-    </form>
+    <Form
+      type={type}
+      onSubmit={handleSubmit}
+      name={name}
+      setName={setName}
+      color={color}
+      setColor={setColor}
+      error={error}
+    />
   );
 }
