@@ -1,4 +1,4 @@
-import { Car } from '@/widgets/GarageSection/types';
+import { Car } from '@/shared/types/garage/types';
 import { commonApi } from './commonApi';
 import { UpdateCarArgs } from '../types';
 

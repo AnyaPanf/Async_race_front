@@ -1,6 +1,6 @@
 import { CarActionBtn } from '@/shared/ui/Buttons/CarActionBtn';
 import { CarActivationBtn } from '@/shared/ui/Buttons/CarActivationBtn';
-import { CarActionsProps } from '../types';
+import { CarActionsProps } from '../../../shared/types/garage/types';
 
 export function CarActions({
   handleSelectCar,

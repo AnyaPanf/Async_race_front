@@ -1,6 +1,6 @@
 import { useGetCarQuery } from '@/store/api/garageApi';
 import { useAppSelector } from '@/store/hooks';
-import { CarCustomizerProps } from '@/widgets/GarageSection/types';
+import { CarCustomizerProps } from '@/shared/types/garage/types';
 import { useCarForm } from '@/shared/hooks/useCarForm';
 import { Form } from './components/Form';
 

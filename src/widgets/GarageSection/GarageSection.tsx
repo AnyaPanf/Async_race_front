@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useGetCarsQuery } from '@/store/api/garageApi';
-import { Car } from './types';
+import { Car } from '../../shared/types/garage/types';
 import CarField from './components/CarField';
 
 export function GarageSection() {

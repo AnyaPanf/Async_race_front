@@ -1,4 +1,4 @@
-import { UseCarFormParams } from '@/widgets/GarageSection/types';
+import { UseCarFormParams } from '@/shared/types/garage/types';
 import { useEffect, useState } from 'react';
 import { getNameValidate } from '../services/getNameValidate';
 
