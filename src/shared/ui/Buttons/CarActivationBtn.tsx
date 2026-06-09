@@ -1,7 +1,7 @@
-import StartIcon from "@/assets/images/Start.svg?react";
-import PauseIcon from "@/assets/images/Pause.svg?react";
+import StartIcon from '@/assets/images/Start.svg?react';
+import PauseIcon from '@/assets/images/Pause.svg?react';
 
-type ButtonType = "start" | "pause";
+type ButtonType = 'start' | 'pause';
 
 type CarActivationBtnProps = {
   type: ButtonType;
@@ -9,13 +9,13 @@ type CarActivationBtnProps = {
 };
 
 const buttonStyles: Record<ButtonType, string> = {
-  start: "bg-transparent border border-[#09f1fc]",
-  pause: "bg-transparent border border-[#ff4a8d]",
+  start: 'bg-transparent border border-[#67ff49]',
+  pause: 'bg-transparent border border-[#ff498d]',
 };
 
 const textStyles: Record<ButtonType, string> = {
-  start: "text-[#09f1fc]",
-  pause: "text-[#ff4a8d]",
+  start: 'text-[#67ff49]',
+  pause: 'text-[#ff498d]',
 };
 
 const icons = {
