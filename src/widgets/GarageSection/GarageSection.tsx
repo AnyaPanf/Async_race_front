@@ -1,18 +1,22 @@
-import { useEffect } from 'react';
-import { useGetCarsQuery } from '@/store/api/garageApi';
-import { Car } from '../../shared/types/garage/types';
-import CarField from './components/CarField';
+import { useGaragePagination } from '@/shared/hooks/usePagination';
+import { Pagination } from '@/widgets/Pagination/Pagination';
+import { GarageList } from './components/GarageList';
 
 export function GarageSection() {
-  const { data: cars } = useGetCarsQuery();
+  const { cars, page, totalPages, setPage } = useGaragePagination();
 
-  useEffect(() => {}, [cars]);
+  if (!cars.length) {
+    return (
+      <div className="flex justify-center py-10 text-gray-500">
+        Oops! Seems like there are no cars yet...
+      </div>
+    );
+  }
 
   return (
-    <div>
-      {cars?.map((car: Car) => (
-        <CarField key={car.id} name={car.name} color={car.color} id={car.id} />
-      ))}
-    </div>
+    <>
+      <GarageList cars={cars} />
+      <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
+    </>
   );
 }
