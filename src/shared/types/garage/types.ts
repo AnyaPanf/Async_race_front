@@ -43,3 +43,21 @@ export type FormProps = {
   setColor: React.Dispatch<React.SetStateAction<string>>;
   error: string | null;
 };
+
+export type GarageListProps = {
+  cars: Car[];
+};
+
+export type PaginationProps = {
+  page: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+};
+
+export type PaginationButtonProps = {
+  page: number;
+  icon: string;
+  onPageChange: (page: number) => void;
+  direction: string;
+  totalPages: number;
+};
