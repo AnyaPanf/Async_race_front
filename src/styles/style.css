@@ -1,16 +1,16 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @font-face {
-  font-family: "Inter";
-  src: url("../assets/fonts/Inter_18pt-Bold.woff") format("woff");
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter_18pt-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("../assets/fonts/Inter_18pt-Regular.woff") format("woff");
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter_18pt-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -39,7 +39,7 @@
   }
 
   .nav-link::after {
-    content: "";
+    content: '';
     @apply absolute left-0 bottom-0 h-[2px] w-0 transition-all duration-300;
 
     background: #ff007f;
@@ -69,12 +69,10 @@
 }
 
 * {
-  /* margin: 0;
-  padding: 0; */
   box-sizing: border-box;
 }
 
 body {
   background-color: #0b0b0d;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }

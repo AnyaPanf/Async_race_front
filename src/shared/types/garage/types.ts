@@ -1,20 +1,14 @@
+import { RefObject } from 'react';
+
 export type Car = {
   name: string;
   color: string;
   id: number;
-};
-
-export type CarActionsProps = {
-  handleSelectCar: () => void;
-  handleRemoveCar: () => void;
+  actionsRef: RefObject<Map<number, { start: () => void; stop: () => void }>>;
 };
 
 export type GarageSectionProps = {
-  handleSelectCar: (id: number) => void;
-};
-
-export type ControlPannelProps = {
-  selectedCarId: number | null;
+  actionsRef: RefObject<Map<number, { start: () => void; stop: () => void }>>;
 };
 
 type CarCustomizerText = 'create' | 'update';
@@ -46,6 +40,7 @@ export type FormProps = {
 
 export type GarageListProps = {
   cars: Car[];
+  actionsRef: RefObject<Map<number, { start: () => void; stop: () => void }>>;
 };
 
 export type PaginationProps = {
@@ -60,4 +55,16 @@ export type PaginationButtonProps = {
   onPageChange: (page: number) => void;
   direction: string;
   totalPages: number;
+};
+
+export type TrackAreaProps = {
+  name: string;
+  color: string;
+  carRef: RefObject<HTMLDivElement | null>;
+  trackRef: RefObject<HTMLDivElement | null>;
+};
+
+export type ControlPannelProps = {
+  startAll: () => void;
+  stopAll: () => void;
 };

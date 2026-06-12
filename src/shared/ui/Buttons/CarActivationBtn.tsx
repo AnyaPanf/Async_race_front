@@ -6,11 +6,12 @@ type ButtonType = 'start' | 'pause';
 type CarActivationBtnProps = {
   type: ButtonType;
   handleClick?: () => void;
+  disabled: boolean;
 };
 
 const buttonStyles: Record<ButtonType, string> = {
-  start: 'bg-transparent border border-[#67ff49]',
-  pause: 'bg-transparent border border-[#ff498d]',
+  start: 'border-[#67ff49]',
+  pause: 'border-[#ff498d]',
 };
 
 const textStyles: Record<ButtonType, string> = {
@@ -23,16 +24,25 @@ const icons = {
   pause: PauseIcon,
 } as const;
 
-export function CarActivationBtn({ type, handleClick }: CarActivationBtnProps) {
+export function CarActivationBtn({
+  type,
+  handleClick,
+  disabled,
+}: CarActivationBtnProps) {
   const Icon = icons[type];
 
   return (
     <button
       type="button"
-      onClick={handleClick}
-      className={`${buttonStyles[type]} font-regular rounded text-[9px] flex items-center justify-center cursor-pointer`}
+      onClick={() => {
+        handleClick?.();
+      }}
+      disabled={disabled}
+      className={`${disabled ? 'border-[#606767]' : buttonStyles[type]} font-regular rounded text-[9px] flex items-center justify-center cursor-pointer bg-transparent border`}
     >
-      <Icon className={`w-4 h-4 py-1 px-1 rounded ${textStyles[type]}`} />
+      <Icon
+        className={`w-4 h-4 py-1 px-1 rounded ${disabled ? 'text-[#606767]' : textStyles[type]}`}
+      />
     </button>
   );
 }

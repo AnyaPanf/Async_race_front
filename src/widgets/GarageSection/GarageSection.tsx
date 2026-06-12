@@ -1,8 +1,9 @@
 import { useGaragePagination } from '@/shared/hooks/usePagination';
 import { Pagination } from '@/widgets/Pagination/Pagination';
 import { GarageList } from './components/GarageList';
+import { GarageSectionProps } from '@/shared/types/garage/types';
 
-export function GarageSection() {
+export function GarageSection({ actionsRef }: GarageSectionProps) {
   const { cars, page, totalPages, setPage } = useGaragePagination();
 
   if (!cars.length) {
@@ -15,7 +16,7 @@ export function GarageSection() {
 
   return (
     <>
-      <GarageList cars={cars} />
+      <GarageList cars={cars} actionsRef={actionsRef} />
       <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
     </>
   );
