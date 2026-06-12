@@ -31,7 +31,7 @@ export function Form({
 
       <button
         type="submit"
-        className="px-2 py-1 bg-[#353638] text-white rounded-md hover:bg-blue-700 cursor-pointer"
+        className="px-2 py-1 bg-[#353638] text-white rounded-md hover:bg-[#fd4a8c] cursor-pointer"
       >
         {type === 'update' ? 'Update' : 'Create'}
       </button>

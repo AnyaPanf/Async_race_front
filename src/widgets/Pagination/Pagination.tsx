@@ -9,7 +9,7 @@ export const Pagination = ({
   onPageChange,
 }: PaginationProps) => {
   return (
-    <div className="flex items-center justify-center gap-4">
+    <div className="flex items-center justify-center gap-4  mt-5">
       <PaginationButton
         icon={ArrowRightIcon}
         onPageChange={onPageChange}

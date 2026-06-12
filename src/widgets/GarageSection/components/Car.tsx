@@ -1,13 +1,17 @@
-import CarIcon from "@/assets/images/Car.svg?react";
+import CarIcon from '@/assets/images/Car.svg?react';
+import { RefObject } from 'react';
 
 type CarProps = {
   color?: string;
+  carRef: RefObject<HTMLDivElement | null>;
 };
 
-export function Car({ color }: CarProps) {
+export function Car({ color, carRef }: CarProps) {
   return (
-    <div className="flex items-center justify-center">
-      <CarIcon className="w-12 h-12" style={{ color }} />
+    <div className="w-full h-12 flex items-center">
+      <div ref={carRef} className="absolute left-7">
+        <CarIcon className="w-12 h-12" style={{ color }} />
+      </div>
     </div>
   );
 }
