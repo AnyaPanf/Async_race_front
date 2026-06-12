@@ -1,32 +1,20 @@
-import { useGetCarsQuery } from '@/store/api/garageApi';
-import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-const PAGE_SIZE = 7;
+export const usePagination = (paramKey: string) => {
+  const [searchParams, setSearchParams] = useSearchParams();
 
-export const useGaragePagination = () => {
-  const [page, setPage] = useState(1);
+  const page = Number(searchParams.get(paramKey)) || 1;
 
-  const { data } = useGetCarsQuery({
-    page,
-    limit: PAGE_SIZE,
-  });
-
-  const cars = data?.cars ?? [];
-  const totalCount = data?.totalCount ?? 0;
-
-  const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
-
-  useEffect(() => {
-    if (page > totalPages) {
-      setPage(totalPages);
-    }
-  }, [page, totalPages]);
+  const setPage = (newPage: number) => {
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      params.set(paramKey, String(newPage));
+      return params;
+    });
+  };
 
   return {
     page,
     setPage,
-    cars,
-    totalPages,
-    totalCount,
   };
 };

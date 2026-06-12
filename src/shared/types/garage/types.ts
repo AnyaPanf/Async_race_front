@@ -8,6 +8,7 @@ export type Car = {
 };
 
 export type GarageSectionProps = {
+  cars: Car[];
   actionsRef: RefObject<Map<number, { start: () => void; stop: () => void }>>;
 };
 
