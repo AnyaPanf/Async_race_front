@@ -9,7 +9,7 @@ export const Pagination = ({
   onPageChange,
 }: PaginationProps) => {
   return (
-    <div className="flex items-center justify-center gap-4  mt-5">
+    <div className="flex items-center justify-center gap-4  mt-5 fixed bottom-5 left-1/2 -translate-x-1/2">
       <PaginationButton
         icon={ArrowRightIcon}
         onPageChange={onPageChange}
@@ -17,7 +17,7 @@ export const Pagination = ({
         direction="previous"
         totalPages={totalPages}
       />
-      <span>
+      <span className="text-[#5c5f60]">
         {page} / {totalPages}
       </span>
       <PaginationButton

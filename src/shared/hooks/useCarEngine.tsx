@@ -6,14 +6,16 @@ import { useRef, useState } from 'react';
 
 type Params = {
   carId: number;
+  onFinish?: (carId: number, time: number) => void;
 };
 
-export function useCarEngine({ carId }: Params) {
+export function useCarEngine({ carId, onFinish }: Params) {
   const carRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
   const startTimeRef = useRef<number>(0);
   const durationRef = useRef<number>(0);
   const trackRef = useRef<HTMLDivElement>(null);
+  const brokenRef = useRef(false);
 
   const [isRunning, setIsRunning] = useState(false);
 
@@ -21,6 +23,7 @@ export function useCarEngine({ carId }: Params) {
   const [switchToDriveMode] = useSwitchToDriveModeMutation();
 
   const start = async () => {
+    brokenRef.current = false;
     setIsRunning(true);
 
     const res = await startStopEngine({
@@ -33,6 +36,7 @@ export function useCarEngine({ carId }: Params) {
     startTimeRef.current = 0;
 
     const animate = (time: number) => {
+      if (brokenRef.current) return;
       if (startTimeRef.current === 0) {
         startTimeRef.current = time;
       }
@@ -51,6 +55,8 @@ export function useCarEngine({ carId }: Params) {
 
       if (progress < 1) {
         rafRef.current = requestAnimationFrame(animate);
+      } else {
+        onFinish?.(carId, durationRef.current);
       }
     };
 

@@ -6,21 +6,27 @@ import { CarActions } from './CarActions';
 import { TrackArea } from './TrackArea';
 import { useCarEngine } from '@/shared/hooks/useCarEngine';
 import { useEffect } from 'react';
+import { useDeleteWinnerMutation } from '@/store/api/winnersApi';
 
-function CarField({ name, color, id, actionsRef }: Car) {
+function CarField({ name, color, id, actionsRef, onFinish }: Car) {
   const dispatch = useDispatch();
   const [removeCar] = useRemoveCarMutation();
+  const [deleteWinner] = useDeleteWinnerMutation();
 
   const { carRef, trackRef, start, stop, isRunning } = useCarEngine({
     carId: id,
+    onFinish,
   });
 
   const handleSelectCar = () => {
     dispatch(setSelectedCarId(id));
   };
 
-  const handleRemoveCar = () => {
-    removeCar(id);
+  const handleRemoveCar = async () => {
+    await removeCar(id);
+    try {
+      await deleteWinner(id).unwrap();
+    } catch {}
   };
 
   useEffect(() => {

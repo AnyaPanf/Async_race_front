@@ -12,8 +12,16 @@ export function CarActions({
   return (
     <div className="grid grid-cols-[85%_15%] gap-2 items-center">
       <div className="flex flex-col gap-1">
-        <CarActionBtn type="select" handleClick={handleSelectCar} />
-        <CarActionBtn type="remove" handleClick={handleRemoveCar} />
+        <CarActionBtn
+          type="select"
+          handleClick={handleSelectCar}
+          disabled={isRunning}
+        />
+        <CarActionBtn
+          type="remove"
+          handleClick={handleRemoveCar}
+          disabled={isRunning}
+        />
       </div>
       <div className="flex flex-col gap-1">
         <CarActivationBtn

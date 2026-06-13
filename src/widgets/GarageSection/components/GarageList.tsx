@@ -1,7 +1,7 @@
 import { GarageListProps } from '@/shared/types/garage/types';
 import CarField from './CarField';
 
-export function GarageList({ cars, actionsRef }: GarageListProps) {
+export function GarageList({ cars, actionsRef, onFinish }: GarageListProps) {
   return (
     <div>
       {cars?.map((car) => (
@@ -11,6 +11,7 @@ export function GarageList({ cars, actionsRef }: GarageListProps) {
           color={car.color}
           id={car.id}
           actionsRef={actionsRef}
+          onFinish={onFinish}
         />
       ))}
     </div>

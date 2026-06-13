@@ -1,7 +1,11 @@
 import { GarageList } from './components/GarageList';
 import { GarageSectionProps } from '@/shared/types/garage/types';
 
-export function GarageSection({ cars, actionsRef }: GarageSectionProps) {
+export function GarageSection({
+  cars,
+  actionsRef,
+  onFinish,
+}: GarageSectionProps) {
   if (!cars.length) {
     return (
       <div className="flex justify-center py-10 text-gray-500">
@@ -12,7 +16,7 @@ export function GarageSection({ cars, actionsRef }: GarageSectionProps) {
 
   return (
     <>
-      <GarageList cars={cars} actionsRef={actionsRef} />
+      <GarageList cars={cars} actionsRef={actionsRef} onFinish={onFinish} />
     </>
   );
 }
