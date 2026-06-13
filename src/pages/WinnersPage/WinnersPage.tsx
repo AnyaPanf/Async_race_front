@@ -30,7 +30,7 @@ function WinnersPage() {
 
   if (isLoading) return <div>Loading...</div>;
   return (
-    <div>
+    <div className="pb-4">
       <div className="neon-title text-center mb-2">WINNERS</div>
       <WinnersTable
         winners={winners}
