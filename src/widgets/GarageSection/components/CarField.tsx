@@ -37,7 +37,7 @@ function CarField({ name, color, id, actionsRef, onFinish }: Car) {
   }, [id, start, stop]);
 
   return (
-    <div className="grid grid-cols-[10%_90%] gap-4 mb-1 pb-1 border-b border-[#373a3d]">
+    <div className="grid grid-cols-[10%_90%] sm:grid-cols-[10%_90%] gap-4 mb-1 pb-1 border-b border-[#373a3d]">
       <CarActions
         handleSelectCar={handleSelectCar}
         handleRemoveCar={handleRemoveCar}

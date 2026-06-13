@@ -10,7 +10,7 @@ type TrackAreaProps = {
 
 export function TrackArea({ name, color, carRef, trackRef }: TrackAreaProps) {
   return (
-    <div className="grid grid-cols-[7%_92%] gap-2 items-center relative">
+    <div className="grid grid-cols-[7%_92%] sm:grid-cols-[7%_92%] gap-2 items-center relative">
       <Car color={color} carRef={carRef} />
       <div
         ref={trackRef}
@@ -19,7 +19,7 @@ export function TrackArea({ name, color, carRef, trackRef }: TrackAreaProps) {
         <div className="flex items-center gap-3">
           <p className="[writing-mode:vertical-rl] text-[8px]">START</p>
 
-          <p className="text-[25px] font-light text-[#363434] tracking-widest">
+          <p className="text-[10px] sm:text-[16px] md:text-[25px] font-light text-[#363434] tracking-widest">
             {name?.toUpperCase()}
           </p>
           <p className="[writing-mode:vertical-rl] text-[8px] ml-auto mr-25">

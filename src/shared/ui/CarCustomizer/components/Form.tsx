@@ -18,7 +18,7 @@ export function Form({
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Car Name"
-        className="rounded-md text-white focus:outline-none"
+        className="rounded-md text-white focus:outline-none w-20 sm:w-auto"
         maxLength={30}
       />
 
@@ -26,7 +26,7 @@ export function Form({
         type="color"
         value={color}
         onChange={(e) => setColor(e.target.value)}
-        className="w-[25px] h-7 cursor-pointer"
+        className="w-6.25 h-7 cursor-pointer sm:w-auto"
       />
 
       <button
@@ -37,7 +37,7 @@ export function Form({
       </button>
 
       {error && (
-        <span className="text-red-500 text-xs ml-2 absolute bottom-[-15px] left-0">
+        <span className="text-red-500 text-xs ml-2 absolute -bottom-3.75 left-0">
           {error}
         </span>
       )}

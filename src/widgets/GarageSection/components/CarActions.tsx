@@ -10,7 +10,7 @@ export function CarActions({
   isRunning,
 }: CarActionsProps) {
   return (
-    <div className="grid grid-cols-[85%_15%] gap-2 items-center">
+    <div className="grid grid-cols-[75%_25%] sm:grid-cols-[85%_15%] gap-2 items-center">
       <div className="flex flex-col gap-1">
         <CarActionBtn
           type="select"

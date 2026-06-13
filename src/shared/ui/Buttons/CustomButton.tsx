@@ -34,7 +34,7 @@ export function CustomButton({ title, type, handleClick }: CustomButtonProps) {
   return (
     <button
       type="button"
-      className={`flex items-center gap-2 px-4 py-2 rounded cursor-pointer transition ${buttonStyles[type]}`}
+      className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2 rounded cursor-pointer transition ${buttonStyles[type]}`}
       onClick={handleClick}
     >
       <Icon className={`w-4 h-4 ${textColors[type]}`} />

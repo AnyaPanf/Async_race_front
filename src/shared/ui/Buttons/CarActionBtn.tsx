@@ -20,7 +20,7 @@ export function CarActionBtn({
     <button
       type="button"
       onClick={() => handleClick()}
-      className={`${disabled ? 'text-[#606767] border-[#606767]' : buttonStyles[type]} font-regular py-0.5 px-1.5 rounded text-[9px] cursor-pointer bg-transparent border`}
+      className={`${disabled ? 'text-[#606767] border-[#606767]' : buttonStyles[type]} font-regular py-0.5 px-1.5 sm:px-1.5 rounded text-[7px] sm:text-[9px] cursor-pointer bg-transparent border whitespace-nowrap`}
     >
       {type.toUpperCase()}
     </button>
