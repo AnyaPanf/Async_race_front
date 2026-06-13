@@ -5,6 +5,7 @@ import {
 import { useAppSelector } from '@/store/hooks';
 import { CarCustomizer } from '@/shared/ui/CarCustomizer/CarCustomizer';
 import { CustomizeCarData } from '@/shared/types/garage/types';
+import { useEffect } from 'react';
 
 export const CustamizationSegment = () => {
   const [updateCar] = useUpdateCarMutation();
@@ -14,6 +15,12 @@ export const CustamizationSegment = () => {
   const handleCreateCar = async ({ name, color }: CustomizeCarData) => {
     await createCar({ data: { name, color } }).unwrap();
   };
+
+  useEffect(() => {
+    if (selectedCarId) {
+      localStorage.setItem('selectedCarId', String(selectedCarId));
+    }
+  }, [selectedCarId]);
 
   const handleUpdateCar = async ({ name, color }: CustomizeCarData) => {
     await updateCar({
