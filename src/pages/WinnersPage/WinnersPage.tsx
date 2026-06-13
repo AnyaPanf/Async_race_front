@@ -5,7 +5,7 @@ import { Pagination } from '@/widgets/Pagination/Pagination';
 import { WinnersTable } from '@/widgets/WinnersTable/WinnersTable';
 import { useState } from 'react';
 
-const PAGE_SIZE = 7;
+const PAGE_SIZE = 10;
 
 function WinnersPage() {
   const { page, setPage } = usePagination('winners');

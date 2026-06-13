@@ -1,6 +1,8 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 
 export function Header() {
+  const [searchParams] = useSearchParams();
+
   return (
     <div className="flex justify-between items-center p-4">
       <div className="neon-title">ASYNC RACE</div>
@@ -9,7 +11,7 @@ export function Header() {
           className={({ isActive }) =>
             `nav-link ${isActive ? 'nav-link-active' : ''}`
           }
-          to="/"
+          to={`/?${searchParams.toString()}`}
         >
           Garage
         </NavLink>
@@ -17,7 +19,7 @@ export function Header() {
           className={({ isActive }) =>
             `nav-link ${isActive ? 'nav-link-active' : ''}`
           }
-          to="/winners"
+          to={`/winners?${searchParams.toString()}`}
         >
           Winners
         </NavLink>
