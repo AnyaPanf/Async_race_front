@@ -2,8 +2,8 @@ import CarIcon from '@/assets/images/Car.svg?react';
 import { RefObject } from 'react';
 
 type CarProps = {
-  color?: string;
-  carRef: RefObject<HTMLDivElement | null>;
+  color: string;
+  carRef?: RefObject<HTMLDivElement | null>;
 };
 
 export function Car({ color, carRef }: CarProps) {

@@ -5,11 +5,13 @@ export type Car = {
   color: string;
   id: number;
   actionsRef: RefObject<Map<number, { start: () => void; stop: () => void }>>;
+  onFinish?: (carId: number, time: number) => void;
 };
 
 export type GarageSectionProps = {
   cars: Car[];
   actionsRef: RefObject<Map<number, { start: () => void; stop: () => void }>>;
+  onFinish: (carId: number, time: number) => void;
 };
 
 type CarCustomizerText = 'create' | 'update';
@@ -42,6 +44,7 @@ export type FormProps = {
 export type GarageListProps = {
   cars: Car[];
   actionsRef: RefObject<Map<number, { start: () => void; stop: () => void }>>;
+  onFinish: (carId: number, time: number) => void;
 };
 
 export type PaginationProps = {
