@@ -5,7 +5,9 @@ type UIState = {
 };
 
 const initialState: UIState = {
-  selectedCarId: undefined,
+  selectedCarId: localStorage.getItem('selectedCarId')
+    ? Number(localStorage.getItem('selectedCarId'))
+    : undefined,
 };
 
 const uiSlice = createSlice({

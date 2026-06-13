@@ -23,6 +23,7 @@ export function CarCustomizer({ type, handleClick }: CarCustomizerProps) {
 
     try {
       await handleClick(data);
+
       resetForm();
     } catch (err) {
       console.error(err);
